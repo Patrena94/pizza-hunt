@@ -58,6 +58,7 @@ function printComment(comment) {
           <label for="reply">Leave a Reply</label>
           <textarea class="form-textarea form-input"  name="reply" required></textarea>
         </div>
+
         <button class="mt-2 btn display-block w-100">Add Reply</button>
       </form>
   `;
