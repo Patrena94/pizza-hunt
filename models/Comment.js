@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-
+const dateFormat = require('../utils/dateFormat');
 const CommentSchema = new Schema({
   WrittenBy: {
     type: String
@@ -9,8 +9,13 @@ const CommentSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+    get: (createdAtVal) => dateFormat(createdAtVal)
+  },
+  toJSON: {
+    virtuals: true,
+    getters: true
+  },
 });
 
 const Comment = model('Comment', CommentSchema);
