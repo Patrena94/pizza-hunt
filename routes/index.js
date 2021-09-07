@@ -1,7 +1,7 @@
 const router = require('express').Router();
 //Import all of the API routes from /api/index.js (no need for indes.js thought since it's implied)
 const apiRoutes = require('./api');
-const htmlRoutes = require('../html/html-routes');
+const htmlRoutes = require('./html/html-routes');
 
 //add prefix of '/ai' to all of the api routes imported from the 'api" directory
 router.use('/api', apiRoutes);
