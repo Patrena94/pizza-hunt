@@ -8,10 +8,13 @@ const ReplySchema = new Schema(
             default: () => new Types.ObjectId()
           },
       replyBody: {
-        type: String
+        type: String,
+        required: true,
+        trim: true
       },
       writtenBy: {
-        type: String
+        type: String,
+        required: true
       },
       createdAt: {
         type: Date,
@@ -37,12 +40,12 @@ const CommentSchema = new Schema({
     default: Date.now,
     get: (createdAtVal) => dateFormat(createdAtVal)
   },
-  replies: [ReplySchema],
-
+  replies: [ReplySchema]},
+{
   toJSON: {
     virtuals: true,
     getters: true
-  },
+  }
 });
 
 const Comment = model('Comment', CommentSchema);
